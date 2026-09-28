@@ -1,0 +1,8 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fb; }
+.sidebar { width: 260px; min-height: 100vh; }
+.sidebar .nav-link.active { background: #c5a059; color: #112233 !important; }
+.sidebar .sidebar-subnav { font-size: .9rem; padding-left: 1.35rem; }
+.icon-box { width: 48px; height: 48px; border-radius: 12px; background: #112233; color: #fff; display: flex; align-items: center; justify-content: center; }
+.card { border-radius: 16px; }
+.table td, .table th { vertical-align: middle; }
+@media (max-width: 992px) { .sidebar { width: 100%; min-height: auto; } .d-flex.min-vh-100 { flex-direction: column; } }

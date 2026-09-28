@@ -1,0 +1,17 @@
+ALTER TABLE services
+  ADD COLUMN IF NOT EXISTS title_fr VARCHAR(255) NULL AFTER title,
+  ADD COLUMN IF NOT EXISTS title_en VARCHAR(255) NULL AFTER title_fr,
+  ADD COLUMN IF NOT EXISTS description_fr LONGTEXT NULL AFTER description,
+  ADD COLUMN IF NOT EXISTS description_en LONGTEXT NULL AFTER description_fr,
+  ADD COLUMN IF NOT EXISTS requirements_fr LONGTEXT NULL AFTER requirements,
+  ADD COLUMN IF NOT EXISTS requirements_en LONGTEXT NULL AFTER requirements_fr,
+  ADD COLUMN IF NOT EXISTS required_documents_fr LONGTEXT NULL AFTER required_documents,
+  ADD COLUMN IF NOT EXISTS required_documents_en LONGTEXT NULL AFTER required_documents_fr,
+  ADD COLUMN IF NOT EXISTS fees_fr TEXT NULL AFTER fees,
+  ADD COLUMN IF NOT EXISTS fees_en TEXT NULL AFTER fees_fr,
+  ADD COLUMN IF NOT EXISTS processing_time_fr VARCHAR(100) NULL AFTER processing_time,
+  ADD COLUMN IF NOT EXISTS processing_time_en VARCHAR(100) NULL AFTER processing_time_fr,
+  ADD COLUMN IF NOT EXISTS office_hours_fr VARCHAR(255) NULL AFTER office_hours,
+  ADD COLUMN IF NOT EXISTS office_hours_en VARCHAR(255) NULL AFTER office_hours_fr,
+  ADD COLUMN IF NOT EXISTS download_forms_fr TEXT NULL AFTER download_forms,
+  ADD COLUMN IF NOT EXISTS download_forms_en TEXT NULL AFTER download_forms_fr;
