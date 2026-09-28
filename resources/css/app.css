@@ -1,0 +1,171 @@
+@import 'tailwindcss';
+@import '@phosphor-icons/web/regular';
+@import '@phosphor-icons/web/fill';
+@import '@phosphor-icons/web/bold';
+@import '@fontsource-variable/inter';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../../app/**/*.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+
+    /* Bleu marine de l'ambassade : la couleur des boutons et des titres */
+    --color-brand-50: #f2f5fa;
+    --color-brand-100: #e3e9f3;
+    --color-brand-200: #c5d2e6;
+    --color-brand-300: #9bb0d1;
+    --color-brand-400: #6b87b4;
+    --color-brand-500: #1d3a5d;
+    --color-brand-600: #172f4d;
+    --color-brand-700: #112233;
+    --color-brand-800: #0d1a29;
+    --color-brand-900: #0b1521;
+    --color-brand-950: #060c14;
+
+    /* Or des armoiries : filets, accents, survols */
+    --color-gold-50: #fbf7ee;
+    --color-gold-100: #f4e7c8;
+    --color-gold-200: #ead3a0;
+    --color-gold-300: #dcb978;
+    --color-gold-400: #c5a059;
+    --color-gold-500: #b48a44;
+    --color-gold-600: #9a7137;
+    --color-gold-700: #7c5a2e;
+
+    /* Drapeau de la République du Congo */
+    --color-flag-green: #009543;
+    --color-flag-yellow: #fbde4a;
+    --color-flag-red: #dc241f;
+
+    --color-ink: #203244;
+    --color-paper: #f7f5f0;
+}
+
+@layer base {
+    [x-cloak] { display: none !important; }
+    html { -webkit-font-smoothing: antialiased; }
+}
+
+/* Les trois couleurs du drapeau, en diagonale comme sur le drapeau */
+.flag-stripe {
+    background: linear-gradient(100deg, var(--color-flag-green) 0 33%, var(--color-flag-yellow) 33% 66%, var(--color-flag-red) 66% 100%);
+}
+
+/* ---------- Back-office ---------- */
+
+.admin-page { background-color: #f5f7fb; }
+.admin-sidebar { background-color: var(--color-brand-900); }
+.admin-sidebar a:hover, .admin-sidebar button:hover { background-color: rgb(255 255 255 / 0.06); }
+.admin-sidebar .is-active { background-color: rgb(197 160 89 / 0.16); color: #fff; box-shadow: inset 3px 0 0 var(--color-gold-400); }
+.admin-topbar { background-color: #fff; border-bottom: 1px solid var(--color-gray-200); }
+
+/*
+ * Tableaux de l'admin (repris de YaQo) : la deuxième colonne — le titre, ce
+ * qu'on lit en premier — prend la place libre, les actions restent à droite.
+ */
+.admin-table th,
+.admin-table td { white-space: nowrap; }
+.admin-table th:nth-child(2),
+.admin-table td:nth-child(2) { width: 100%; white-space: normal; }
+.admin-table th:last-child,
+.admin-table td:last-child { text-align: right; }
+
+/*
+ * Éditeur de texte (Trix) aux couleurs de l'admin, sans pièces jointes.
+ * Sélecteurs doublés : la feuille de Trix est chargée après celle-ci.
+ */
+trix-toolbar [data-trix-button-group='file-tools'] { display: none !important; }
+trix-toolbar .trix-button-group { border-color: var(--color-gray-200); border-radius: 8px; }
+trix-toolbar .trix-button { border-bottom: 0; }
+trix-editor.trix-content {
+    min-height: 12rem;
+    border-radius: 0.5rem;
+    border: 0;
+    box-shadow: inset 0 0 0 1px var(--color-gray-300);
+    background: #fff;
+    padding: 0.75rem 1rem;
+}
+trix-editor.trix-content:focus { outline: none; box-shadow: inset 0 0 0 2px var(--color-brand-500); }
+
+/* ---------- Site public ---------- */
+
+@layer components {
+    .site-container { @apply mx-auto w-full max-w-[88rem] px-4 sm:px-6 lg:px-8; }
+
+    /* Petite ligne dorée + libellé en capitales : l'en-tête de chaque section */
+    .site-eyebrow { @apply inline-flex items-center gap-3 text-xs font-semibold tracking-[0.22em] text-gold-600 uppercase; }
+    .site-eyebrow::before { content: ''; @apply h-px w-8 bg-current; }
+    .site-eyebrow-light { @apply text-gold-300; }
+
+    .site-btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold tracking-wide transition duration-200
+            focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-wait disabled:opacity-70;
+    }
+    .site-btn-gold { @apply bg-gold-400 text-brand-900 shadow-sm hover:bg-gold-300 focus-visible:outline-gold-400; }
+    .site-btn-navy { @apply bg-brand-500 text-white shadow-sm hover:bg-brand-700 focus-visible:outline-brand-500; }
+    .site-btn-light { @apply text-white ring-1 ring-white/40 ring-inset hover:bg-white/10 focus-visible:outline-white; }
+    .site-btn-outline { @apply bg-white text-brand-600 ring-1 ring-brand-200 ring-inset hover:bg-brand-50 hover:ring-brand-300 focus-visible:outline-brand-500; }
+
+    .site-link { @apply inline-flex items-center gap-1.5 font-semibold text-brand-500 underline-offset-4 hover:text-gold-700 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500; }
+
+    .site-card { @apply rounded-xl bg-white ring-1 ring-brand-900/8 shadow-[0_1px_2px_rgb(17_34_51/0.04),0_8px_24px_-12px_rgb(17_34_51/0.12)]; }
+
+    .site-input {
+        @apply block w-full rounded-md border-0 bg-white px-3.5 py-2.5 text-[15px] text-ink shadow-sm ring-1 ring-brand-200 ring-inset
+            placeholder:text-slate-400 focus:ring-2 focus:ring-brand-500 focus:ring-inset;
+    }
+    .site-input[aria-invalid='true'] { @apply ring-flag-red/70 focus:ring-flag-red; }
+}
+
+/* Chiffres alignés : les chiffres elzéviriens du Garamond dansent dans les dates */
+.font-display { font-variant-numeric: lining-nums; }
+
+/* Filet doré sous les titres de section centrés */
+.site-rule { height: 1px; width: 4rem; background: linear-gradient(90deg, transparent, var(--color-gold-400), transparent); }
+
+/* Motif discret des sections sombres : rappelle un papier officiel gaufré */
+.site-guilloche {
+    background-image:
+        radial-gradient(circle at 20% 0%, rgb(197 160 89 / 0.10), transparent 45%),
+        radial-gradient(circle at 100% 100%, rgb(197 160 89 / 0.08), transparent 40%);
+}
+
+/* Entrée douce du bandeau d'accueil, seulement si l'utilisateur accepte les animations */
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes site-rise {
+        from { opacity: 0; transform: translateY(14px); }
+        to { opacity: 1; transform: none; }
+    }
+    .site-rise { animation: site-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+    .site-rise-delay { animation-delay: 0.15s; }
+    .site-rise-delay-2 { animation-delay: 0.3s; }
+
+    /* Ken Burns : la photo du bandeau avance lentement en glissant, puis revient */
+    @keyframes site-ken-burns {
+        from { transform: scale(1) translate3d(0, 0, 0); }
+        to { transform: scale(1.15) translate3d(-2%, -1.5%, 0); }
+    }
+    .site-ken-burns {
+        transform-origin: 60% 40%;
+        will-change: transform;
+        animation: site-ken-burns 24s ease-in-out infinite alternate;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, ::before, ::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
