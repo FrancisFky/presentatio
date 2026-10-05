@@ -34,7 +34,6 @@
 
         <div class="site-container flex flex-col justify-center py-20 sm:min-h-[640px] lg:min-h-[720px] lg:py-28">
             <div class="max-w-3xl">
-                <!-- <p class="site-eyebrow site-eyebrow-light site-rise">{{ __('site.home.hero_eyebrow') }}</p> -->
                 <h1 id="hero-title" class="site-rise site-rise-delay mt-5 font-display text-[2.6rem] leading-[1.04] font-semibold text-balance text-white sm:text-6xl lg:text-7xl">
                     {{ $heroTitle }}
                 </h1>
@@ -127,8 +126,7 @@
                          class="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl">
                 </div>
                 <div class="lg:col-span-7">
-                    <p class="site-eyebrow site-eyebrow-light">{{ __('site.ambassador.eyebrow') }}</p>
-                    <h2 id="ambassador-title" class="mt-3 font-display text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">{{ __('site.ambassador.title') }}</h2>
+                    <h2 id="ambassador-title" class="font-display text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">{{ __('site.ambassador.title') }}</h2>
                     <figure class="mt-8">
                         <i class="ph-fill ph-quotes text-5xl text-gold-400/70" aria-hidden="true"></i>
                         <blockquote class="mt-2 font-display text-2xl leading-relaxed text-brand-50 italic sm:text-[1.7rem]">

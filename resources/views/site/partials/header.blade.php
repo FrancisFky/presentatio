@@ -72,7 +72,6 @@
             <img src="{{ Site::logo() }}" alt="" width="56" height="56" class="size-11 shrink-0 object-contain lg:size-14">
             <span class="min-w-0 leading-tight">
                 <span class="block text-[10px] font-semibold tracking-[0.24em] text-gold-600 uppercase sm:text-[11px]">{{ __('site.brand.eyebrow') }}</span>
-                <!-- <span class="block truncate font-display text-xl font-semibold whitespace-nowrap text-brand-700 sm:text-2xl xl:text-[1.4rem] 2xl:text-2xl">{{ __('site.brand.title') }}</span> -->
                 <span class="sr-only">— {{ Site::name() }}</span>
             </span>
         </a>
