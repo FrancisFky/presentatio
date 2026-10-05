@@ -84,8 +84,9 @@
                     <x-site.field as="select" name="preferred_time" :label="__('site.appointment.fields.preferred_time')" required :error="$errors->first('preferred_time')"
                         wire:model.blur="preferred_time" :hint="__('site.appointment.time_hint')">
                         <option value="">{{ __('site.appointment.choose_time') }}</option>
-                        @foreach ($slots as $slot)
-                            <option value="{{ $slot }}">{{ $slot }}</option>
+                        {{-- Pas « $slot » comme variable : le nom est réservé au contenu du composant --}}
+                        @foreach ($timeSlots as $time)
+                            <option value="{{ $time }}">{{ $time }}</option>
                         @endforeach
                     </x-site.field>
                     <div class="sm:col-span-2">

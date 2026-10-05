@@ -178,7 +178,7 @@ class AppointmentForm extends Component
     {
         return view('livewire.appointment-form', [
             'services' => Service::published()->ordered()->get(),
-            'slots' => Appointment::TIME_SLOTS,
+            'timeSlots' => Appointment::TIME_SLOTS,
             'minDate' => today()->toDateString(),
         ]);
     }

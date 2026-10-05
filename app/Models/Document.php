@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Models\Concerns\HasPublicationStatus;
 use App\Models\Concerns\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Number;
 
 /** Formulaire ou publication à télécharger */
 class Document extends Model
@@ -23,7 +22,21 @@ class Document extends Model
 
     public function humanSize(): ?string
     {
-        return $this->file_size ? Number::fileSize($this->file_size, precision: 1) : null;
+        if (!$this->file_size) {
+            return null;
+        }
+
+        // Sans l'extension intl (absente de l'hébergement) : Number::fileSize() planterait
+        $units = app()->getLocale() === 'fr' ? ['o', 'Ko', 'Mo', 'Go'] : ['B', 'KB', 'MB', 'GB'];
+        $size = (float) $this->file_size;
+        $unit = 0;
+        while ($size >= 1024 && $unit < count($units) - 1) {
+            $size /= 1024;
+            $unit++;
+        }
+        $separator = app()->getLocale() === 'fr' ? ',' : '.';
+
+        return number_format($size, $unit === 0 ? 0 : 1, $separator, ' ') . ' ' . $units[$unit];
     }
 
     public function icon(): string

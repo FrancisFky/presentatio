@@ -62,6 +62,14 @@ test('une demande de rendez-vous est enregistrée et confirmée par e-mail', fun
     Mail::assertSent(NewSubmission::class, fn ($mail) => $mail->hasTo('consulat@ambassade.test'));
 });
 
+test('la page de rendez-vous propose tous les créneaux horaires', function () {
+    $response = $this->get('/fr/rendez-vous')->assertOk();
+
+    foreach (Appointment::TIME_SLOTS as $time) {
+        $response->assertSee('<option value="' . $time . '">' . $time . '</option>', false);
+    }
+});
+
 test('le service est pré-sélectionné depuis la fiche service', function () {
     $service = Make::service();
 
