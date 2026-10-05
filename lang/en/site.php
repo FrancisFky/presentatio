@@ -96,7 +96,7 @@ return [
         'title' => 'Consular Services',
         'eyebrow' => 'Your procedures',
         'single' => 'Consular service',
-        'intro' => 'Passports, visas, civil status, legalisation: find the requirements, supporting documents and fees for each procedure.',
+        'intro' => 'Passports, visas, civil status, legalisation',
         'list' => 'List of services',
         'empty_title' => 'Service details are coming',
         'empty_text' => 'Consular services will be described here shortly. In the meantime, please contact us for any procedure.',

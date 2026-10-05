@@ -97,7 +97,7 @@ return [
         'title' => 'Services consulaires',
         'eyebrow' => 'Vos démarches',
         'single' => 'Service consulaire',
-        'intro' => 'Passeports, visas, état civil, légalisations : retrouvez les conditions, les pièces à fournir et les frais de chaque démarche.',
+        'intro' => 'Passeports, visas, état civil, légalisations',
         'list' => 'Liste des services',
         'empty_title' => 'Les fiches des services arrivent',
         'empty_text' => "Les services consulaires seront bientôt détaillés ici. En attendant, contactez-nous pour toute démarche.",
