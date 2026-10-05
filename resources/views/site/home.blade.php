@@ -34,7 +34,7 @@
 
         <div class="site-container flex flex-col justify-center py-20 sm:min-h-[640px] lg:min-h-[720px] lg:py-28">
             <div class="max-w-3xl">
-                <p class="site-eyebrow site-eyebrow-light site-rise">{{ __('site.home.hero_eyebrow') }}</p>
+                <!-- <p class="site-eyebrow site-eyebrow-light site-rise">{{ __('site.home.hero_eyebrow') }}</p> -->
                 <h1 id="hero-title" class="site-rise site-rise-delay mt-5 font-display text-[2.6rem] leading-[1.04] font-semibold text-balance text-white sm:text-6xl lg:text-7xl">
                     {{ $heroTitle }}
                 </h1>
