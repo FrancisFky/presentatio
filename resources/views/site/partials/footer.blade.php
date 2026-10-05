@@ -18,7 +18,6 @@
                 </span>
                 <span class="leading-tight">
                     <span class="block text-[11px] font-semibold tracking-[0.24em] text-gold-400 uppercase">{{ __('site.brand.eyebrow') }}</span>
-                    <span class="block font-display text-2xl font-semibold text-white">{{ __('site.brand.title') }}</span>
                 </span>
             </a>
             <p class="mt-6 max-w-sm text-sm leading-relaxed text-brand-200">
